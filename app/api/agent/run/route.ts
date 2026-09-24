@@ -1,0 +1,1 @@
+import{NextResponse}from"next/server";export async function GET(){return NextResponse.json({status:"ready",message:"Agent runner installed. External search/email/payment adapters stay disabled until provider credentials and approval rules are configured.",flow:["prospecting","audit","offer","demo","contact","negotiation","proposal","contract","payment","handoff"]})}
