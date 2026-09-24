@@ -1,0 +1,2 @@
+import{NextResponse}from"next/server";import{createClient}from"@/lib/supabase/server";import{prepareProspect}from"@/lib/agents/orchestrator";
+export async function POST(req:Request){const s=await createClient();const{data:claims}=await s.auth.getClaims();if(!claims?.claims)return NextResponse.json({error:"unauthorized"},{status:401});const body=await req.json();if(!body.prospect||!Array.isArray(body.facts))return NextResponse.json({error:"prospect and facts required"},{status:400});const result=await prepareProspect(body.prospect,body.facts);return NextResponse.json(result)}
