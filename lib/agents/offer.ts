@@ -1,0 +1,2 @@
+import {priceRange,type ServiceKey} from "@/lib/commercial-rules";import type{AuditResult,Offer}from "./types";
+export function buildOffer(audit:AuditResult,service:ServiceKey,currency:"BRL"|"USD"):Offer{const [min,max]=priceRange(service,currency);const strong=audit.score<40;const price=strong?Math.round((min+max)/2):min;return{service,currency,price,scope:audit.opportunities.slice(0,4),timeline:service==="landing"?"7-12 dias úteis":"Prazo confirmado após escopo",requires_human:false}}
