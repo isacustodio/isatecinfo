@@ -1,1 +1,7 @@
-import{NextResponse}from"next/server";export async function GET(){return NextResponse.json({status:"ready",message:"Agent runner installed. External search/email/payment adapters stay disabled until provider credentials and approval rules are configured.",flow:["prospecting","audit","offer","demo","contact","negotiation","proposal","contract","payment","handoff"]})}
+import{NextResponse}from"next/server";
+export async function GET(){return NextResponse.json({
+ status:"ready",
+ message:"Business OS workflow installed. External actions remain gated until provider credentials and approval rules are configured.",
+ deliveryTargetHours:72,
+ flow:["prospecting","audit","opportunity","demo","contact","negotiation","proposal","contract","verified_payment","infrastructure_intake","infrastructure_approval","provisioning","build","qa","publish_approval","deploy","handoff"]
+})}
